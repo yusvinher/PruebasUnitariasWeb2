@@ -8,13 +8,21 @@ namespace PruebasUnitariasWeb
     {
         public static long CalcularFactorial(int n)
         {
-            throw new NotImplementedException();
+            if (n < 0)
+                return -1;
+
+            long factorial = 1;
+
+            for (int i = 2; i <= n; i++)
+                factorial *= i;
+
+            return factorial;
         }
 
         public static bool EsContrasenyaValida(string contrasenya)
         {
-            throw new NotImplementedException();
+            return !string.IsNullOrWhiteSpace(contrasenya) && contrasenya.Length >= 8 && contrasenya.Contains("#");
         }
-    }
 
+    }
 }
