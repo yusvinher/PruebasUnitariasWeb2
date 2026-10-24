@@ -32,6 +32,45 @@ namespace TestPruebasUnitariasWeb
                 Funciones.CalcularFactorial(5)
             );
         }
+        [TestMethod]
+        public void EsContrasenyaValida_EsNull()
+        {
+            Assert.IsFalse(
+                Funciones.EsContrasenyaValida(null)
+            );
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_EstaVacia()
+        {
+            Assert.IsFalse(
+                Funciones.EsContrasenyaValida("")
+            );
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_LongitudMenor8()
+        {
+            Assert.IsFalse(
+                Funciones.EsContrasenyaValida("abc#")
+            );
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_SinAlmohadilla()
+        {
+            Assert.IsFalse(
+                Funciones.EsContrasenyaValida("abcdefgh")
+            );
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_Valida()
+        {
+            Assert.IsTrue(
+                Funciones.EsContrasenyaValida("abcd#123")
+            );
+        }
     }
 }
 
